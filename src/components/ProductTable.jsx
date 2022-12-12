@@ -1,24 +1,15 @@
 import ProductRow from './ProductRow';
 import ProductCategoryRow from './ProductCategoryRow';
+import { filterWords } from '../utils/filterWords';
 
 const ProductTable = ({ products, filterText, inStockOnly }) => {
   const rows = [];
   let lastCategory = null;
 
-  const filterWords = (word, letters) => {
-    if (word.toLowerCase().indexOf(letters.toLowerCase()) === -1) {
-      return false;
-    } else {
-      return true;
-    }
-  };
-
   products.forEach((product) => {
-    // Check if there is such product
     if (!filterWords(product.name, filterText)) {
       return;
     }
-    // Check if product is in stock
     if (inStockOnly && !product.stocked) {
       return;
     }

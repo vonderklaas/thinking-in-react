@@ -4,7 +4,6 @@ import SearchBar from './SearchBar';
 import ProductTable from './ProductTable';
 
 const FilterableProductTable = ({ products }) => {
-  // State lives here
   const [filterText, setFilterText] = useState('');
   const [inStockOnly, setInStockOnly] = useState(false);
 
